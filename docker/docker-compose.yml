@@ -1,15 +1,13 @@
-version: '3.3'
+version: "3.3"
 services:
-  mysql:
-    image: mysql:5.7
+  parcial_db:
+    image: postgres
     restart: always
     environment:
-      MYSQL_DATABASE: 'movie-dev'
-      MYSQL_USER: 'usr-movie'
-      MYSQL_PASSWORD: 'pwd-movie'
-      MYSQL_ROOT_PASSWORD: 'password'
+      POSTGRES_DB: 'streaming-movie-dev'
+      POSTGRES_USER: 'root'
+      POSTGRES_PASSWORD: 'password'
     ports:
-      - '3306:3306'
+      - '5432:5432'
     expose:
-      - '3306'
-   
+      - '5432'

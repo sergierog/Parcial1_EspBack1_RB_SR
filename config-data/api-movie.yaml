@@ -4,10 +4,10 @@ spring:
   application:
     name: api-movie
   datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/streaming-movie-dev
-    username: ${MYSQL_USERNAME}
-    password: ${MYSQL_PASSWORD}
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/streaming-movie-dev
+    username: root
+    password: password
   jpa:
     hibernate.ddl-auto: update
     generate-ddl: true
