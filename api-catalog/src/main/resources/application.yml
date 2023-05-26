@@ -1,5 +1,5 @@
-server:
-  port: 8084
 spring:
   application:
-    name: api-catalog
+    name: api-provider
+  config:
+    import: configserver:http://localhost:8888
