@@ -1,13 +1,13 @@
-version: "3.3"
+version: "3.7"
 services:
-  parcial_db:
-    image: postgres
+  movie-streaming:
+    image: postgres:latest
     restart: always
+    container_name: postgres_movie-streaming
+    hostname: movie-streaming
     environment:
-      POSTGRES_DB: 'streaming-movie-dev'
+      POSTGRES_DB: 'streaming-movie'
       POSTGRES_USER: 'root'
       POSTGRES_PASSWORD: 'password'
     ports:
-      - '5432:5432'
-    expose:
-      - '5432'
+      - '8051:5432'
