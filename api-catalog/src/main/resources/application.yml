@@ -1,5 +1,5 @@
 spring:
   application:
-    name: api-provider
+    name: api-catalog
   config:
     import: configserver:http://localhost:8888
