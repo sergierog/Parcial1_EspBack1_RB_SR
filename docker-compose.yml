@@ -23,8 +23,6 @@ services:
     volumes:
       - ./docker/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
   zipkin_server:
-    depends_on:
-      - storage-aux-container
     container_name: zipkin_server
     image: openzipkin/zipkin-slim
     environment:
