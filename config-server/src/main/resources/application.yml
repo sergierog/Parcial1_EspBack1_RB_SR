@@ -10,4 +10,5 @@ spring:
         git:
           uri: https://github.com/sergierog/Parcial1_EspBack1_RB_SR.git
           search-paths: config-data
+          default-label: entrega_final
           force-pull: true
