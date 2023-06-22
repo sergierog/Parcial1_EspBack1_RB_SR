@@ -5,9 +5,9 @@ spring:
     name: api-serie
   data:
     mongodb:
-      database: series
       host: localhost
       port: 27018
+      database: series
       username: root
       password: password
 eureka:
