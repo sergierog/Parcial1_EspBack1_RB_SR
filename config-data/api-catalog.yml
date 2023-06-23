@@ -3,6 +3,13 @@ server:
 spring:
   application:
     name: api-catalog
+  data:
+    mongodb:
+      host: localhost
+      port: 27018
+      database: catalog
+      username: root
+      password: password
   zipkin:
     baseUrl: http://localhost:9411/
 eureka:

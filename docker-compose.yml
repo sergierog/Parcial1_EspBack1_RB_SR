@@ -22,9 +22,19 @@ services:
     restart: always
     volumes:
       - ./docker/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+  db_catalog:
+    container_name: db_catalog
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_DATABASE: 'catalog'
+      MONGO_INITDB_ROOT_USERNAME: 'root'
+      MONGO_INITDB_ROOT_PASSWORD: 'password'
+    ports:
+      - '27018:27017'
+    restart: always
+    volumes:
+      - ./docker/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
   zipkin_server:
-    depends_on:
-      - storage-aux-container
     container_name: zipkin_server
     image: openzipkin/zipkin-slim
     environment:
@@ -32,4 +42,4 @@ services:
     ports:
       - '9411:9411'
     restart: always
- 
+  
