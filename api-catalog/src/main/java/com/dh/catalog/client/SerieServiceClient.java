@@ -1,10 +1,12 @@
 package com.dh.catalog.client;
 
+import com.dh.catalog.Models.serie.Serie;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,43 +15,6 @@ import java.util.List;
 public interface SerieServiceClient {
 
 	@GetMapping("/api/v1/series/{genre}")
-	List<SerieDto> getSeriesByGenre(@PathVariable (value = "genre") String genre);
-
-
-	@Getter
-	@Setter
-	class SerieDto{
-		private String id;
-
-		private String name;
-
-		private String genre;
-		private List<SeasonDto> seasons = new ArrayList<>();
-
-
-	}
-	@Getter
-	@Setter
-	class SeasonDto{
-
-
-		private Integer seasonNumber;
-		private List<ChapterDto> chapters = new ArrayList<>();
-
-
-
-
-	}
-	@Getter
-	@Setter
-	class ChapterDto{
-		private String name;
-		private Integer number;
-		private String urlStream;
-
-
-
-
-	}
+	List<Serie> getSeriesByGenre(@PathVariable (value = "genre") String genre);
 
 }
