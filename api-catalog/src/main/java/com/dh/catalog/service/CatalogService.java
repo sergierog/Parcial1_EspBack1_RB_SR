@@ -59,12 +59,12 @@ public class CatalogService {
     return serieRepository.findAllByGenre(genre);
   }
 
-  public Movie saveMovie(Movie movie) {
-    return movieRepository.save(movie);
+  public void saveMovie(Movie movie) {
+    movieRepository.save(movie);
   }
 
-  public Serie saveSerie(Serie serie) {
-    return serieRepository.save(serie);
+  public void saveSerie(Serie serie) {
+    serieRepository.save(serie);
   }
 
 }

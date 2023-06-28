@@ -1,6 +1,5 @@
 package com.dh.catalog.event;
 
-
 import com.dh.catalog.Models.serie.Serie;
 import com.dh.catalog.config.RabbitMQConfig;
 import com.dh.catalog.service.CatalogService;
@@ -17,12 +16,8 @@ public class SerieCreadaEventConsumer {
     }
 
     @RabbitListener(queues = RabbitMQConfig.QUEUE_SERIE_CREADA)
-    public void listen(Serie serie){
-        System.out.print("NOMBRE SERIE "+ serie.getName());
-        //procesamiento
+    public void listen(Serie serie) {
         catalogService.saveSerie(serie);
     }
-
-
 
 }
