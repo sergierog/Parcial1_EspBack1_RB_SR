@@ -2,23 +2,19 @@ server:
   port: 0
 spring:
   application:
-    name: api-movie
+    name: api-serie
   rabbitmq:
     username: guest
     password: guest
     host: localhost
     port: 5672
-  zipkin:
-    baseUrl: http://localhost:9411/
-  datasource:
-    driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/movies
-    username: root
-    password: password
-  jpa:
-    hibernate.ddl-auto: update
-    generate-ddl: true
-    show-sql: true
+  data:
+    mongodb:
+      host: localhost
+      port: 27019
+      database: series
+      username: root
+      password: password
 eureka:
   instance:
     hostname: localhost

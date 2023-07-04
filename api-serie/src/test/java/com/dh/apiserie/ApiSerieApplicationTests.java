@@ -1,9 +1,13 @@
-package com.dh.eureka;
+package com.dh.apiserie;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EurekaServerApplicationTests {
+class ApiSerieApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
 
 }
