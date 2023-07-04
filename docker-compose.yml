@@ -1,6 +1,6 @@
-version: "3.8"
+version: '3.8'
 services:
-  db_movies:
+  db-movies:
     container_name: db_movies
     image: postgres:latest
     environment:
@@ -10,7 +10,7 @@ services:
     ports:
       - '5432:5432'
     restart: always
-  db_series:
+  db-series:
     container_name: db_series
     image: mongo:latest
     environment:
@@ -22,7 +22,7 @@ services:
     restart: always
     volumes:
       - ./docker/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
-  db_catalog:
+  db-catalog:
     container_name: db_catalog
     image: mongo:latest
     environment:
@@ -34,7 +34,7 @@ services:
     restart: always
     volumes:
       - ./docker/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
-  zipkin_server:
+  zipkin-server:
     container_name: zipkin_server
     image: openzipkin/zipkin-slim
     environment:
@@ -42,14 +42,24 @@ services:
     ports:
       - '9411:9411'
     restart: always
-  rabbitmq-container:
+  rabbitmq-server:
     image: rabbitmq:3-management
-    container_name: rabbitmq-container
+    container_name: rabbitmq_server
     hostname: localhost
     ports:
-      - "5672:5672"
-      - "15672:15672"
-    expose:
-      - 15672
-      - 5672
-  
+      - '5672:5672'
+      - '15672:15672'
+  config-server:
+    build: config-server
+    container_name: config_server
+    restart: on-failure
+    ports:
+      - '8888:8888'
+  eureka-server:
+    depends_on:
+      - config-server
+    build: eureka-server
+    container_name: eureka_server
+    restart: on-failure
+    ports:
+      - '8761:8761'
